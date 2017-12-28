@@ -16,4 +16,8 @@ travis-ci = { repository = "coredump-ch/lpc11uxx-rs" }
 [dependencies]
 bare-metal = "0.1"
 cortex-m = "0.3"
+cortex-m-rt = { version = "0.3", optional = true }
 vcell = "0.1"
+
+[features]
+rt = ["cortex-m-rt"]

@@ -677,39 +677,23 @@ v7 updates:
 			</interrupt>
 			<registers>
 				<register>
-					<name>RBR</name>
-					<description>Receiver Buffer Register. Contains the next received character to be read. (DLAB=0)</description>
+					<name>RBR_THR</name>
+					<description>
+						Read: Receiver Buffer Register. Contains the next received character to be read. (DLAB=0)
+						Write: Transmit Holding Register. The next character to be transmitted is written here. (DLAB=0)
+					</description>
 					<addressOffset>0x000</addressOffset>
-					<access>read-only</access>
+					<access>read-write</access>
 					<resetValue>0</resetValue>
 					<resetMask>0x00000000</resetMask>
 					<readAction>modify</readAction>
 					<fields>
 						<field>
-							<name>RBR</name>
-							<description>The USART Receiver Buffer Register contains the oldest received byte in the USART RX FIFO.</description>
-							<bitRange>[7:0]</bitRange>
-						</field>
-						<field>
-							<name>RESERVED</name>
-							<description>Reserved</description>
-							<bitRange>[31:8]</bitRange>
-						</field>
-					</fields>
-				</register>
-				<register>
-					<name>THR</name>
-					<description>Transmit Holding Register. The next character to be transmitted is written here. (DLAB=0)</description>
-					<alternateRegister>RBR</alternateRegister>
-					<addressOffset>0x000</addressOffset>
-					<access>write-only</access>
-					<resetValue>0</resetValue>
-					<resetMask>0x00000000</resetMask>
-					<readAction>modify</readAction>
-					<fields>
-						<field>
-							<name>THR</name>
-							<description>Writing to the USART Transmit Holding Register causes the data to be stored in the USART transmit FIFO. The byte will be sent when it is the oldest byte in the FIFO and the transmitter is available.</description>
+							<name>RBR_THR</name>
+							<description>
+								Read: The USART Receiver Buffer Register contains the oldest received byte in the USART RX FIFO.
+								Write: Writing to the USART Transmit Holding Register causes the data to be stored in the USART transmit FIFO. The byte will be sent when it is the oldest byte in the FIFO and the transmitter is available.
+							</description>
 							<bitRange>[7:0]</bitRange>
 						</field>
 						<field>
